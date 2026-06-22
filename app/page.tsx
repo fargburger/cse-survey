@@ -203,7 +203,7 @@ export default function ChristianityStackExchangeSurvey() {
     window.setTimeout(() => setCopied(false), 1400);
   }
 
-  function updateAnswer(id, value) {
+  function updateAnswer(id: string, value: string | number) {
     setAnswers((prev) => ({ ...prev, [id]: value }));
   }
 
