@@ -311,7 +311,7 @@ export default function ChristianityStackExchangeSurvey() {
                 {questions.map((q) => (
                   <div key={q.id} className="space-y-2">
                     <Label>{q.label}</Label>
-                    <Select value={answers[q.id]} onValueChange={(value) => updateAnswer(q.id, value)}>
+                    <Select value={answers[q.id] as string} onValueChange={(value) => updateAnswer(q.id, value)}>
                       <SelectTrigger className="rounded-2xl"><SelectValue placeholder="Select one" /></SelectTrigger>
                       <SelectContent>
                         {q.options.map((opt) => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
@@ -341,7 +341,7 @@ export default function ChristianityStackExchangeSurvey() {
                             <Label className="text-base leading-snug">{q.label}</Label>
                             <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold">{answers[q.id]}</span>
                           </div>
-                          <Slider className="mt-4" min={1} max={10} step={1} value={[answers[q.id]]} onValueChange={([value]) => updateAnswer(q.id, value)} />
+                          <Slider className="mt-4" min={1} max={10} step={1} value={[answers[q.id] as number]} onValueChange={([value]) => updateAnswer(q.id, value)} />
                           <div className="mt-2 flex justify-between text-xs text-slate-400"><span>1 low</span><span>10 high</span></div>
                         </div>
                       </div>
