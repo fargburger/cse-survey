@@ -170,7 +170,7 @@ export default function ChristianityStackExchangeSurvey() {
   const [token, setToken] = useState("");
   const [copied, setCopied] = useState(false);
   const [answers, setAnswers] = useState(() => {
-    const initial = {};
+    const initial: Record<string, string | number> = {};
     selectQuestions.forEach((q) => (initial[q.id] = ""));
     opinionQuestions.forEach((q) => (initial[q.id] = 5));
     return initial;
