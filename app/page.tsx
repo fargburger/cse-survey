@@ -159,7 +159,7 @@ const opinionQuestions = [
   { id: "overallValue", icon: BadgeCheck, section: "Overall", label: "Christianity.SE remains valuable as a public archive of Christian Q&A." },
 ];
 
-function makeToken(year, userId) {
+function makeToken(year: number, userId: string) {
   const rand = crypto.getRandomValues(new Uint8Array(12));
   const randomPart = Array.from(rand, (b) => b.toString(16).padStart(2, "0")).join("");
   return `cse-survey-${year}-${userId}-${randomPart}`;
