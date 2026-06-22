@@ -364,11 +364,15 @@ export default function ChristianityStackExchangeSurvey() {
   );
 }
 
-function groupBy(items, key) {
+function groupBy<T extends { section: string }>(
+  items: T[],
+  key: keyof T
+): Record<string, T[]> {
   return items.reduce((acc, item) => {
-    const group = item[key];
+    const group = item[key] as string;
     acc[group] = acc[group] || [];
     acc[group].push(item);
     return acc;
-  }, {});
+  }, {} as Record<string, T[]>);
 }
+
